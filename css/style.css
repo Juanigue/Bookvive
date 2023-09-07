@@ -41,7 +41,9 @@ nav a {
   font-size: 20px;
   font-weight: 500;
 }
-
+nav a:hover {
+  color: #fcd333;
+}
 /* Estilos del primer slider */
 .slider {
   width: 100%;
@@ -146,7 +148,6 @@ nav a {
   font-family: Playfair Display;
   font-size: 20px;
   font-weight: 400;
-
 }
 
 /* Estilos del pie de página */
@@ -164,6 +165,169 @@ footer p {
   padding: 5%;
 }
 
-.contacto{
+.contacto {
   font-size: larger;
+}
+
+/* Estilos de página PRODUCTOS */
+
+/* Estilos de página PRODUCTOS */
+
+.header-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  padding: 1%;
+  background-color: #005156;
+  font-size: 22px;
+  font-weight: 400;
+}
+.left-2 {
+  margin-left: 5%;
+}
+.right-2{
+  margin-right: 5%;
+}
+/* Estilos de la cuadrícula */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 columnas de tamaño igual (1fr) */
+  grid-template-rows: repeat(3, 1fr); /* 3 filas de tamaño igual (1fr) */
+  gap: 10px; /* Espacio entre los elementos */
+  margin: 5% 10% 5% 10%;
+  justify-content: center; /* Centra horizontalmente la cuadrícula */
+}
+.grid-item {
+  position: relative;
+}
+
+.background {
+  transition: filter 0.3s ease;
+}
+
+.background:hover {
+  filter: blur(8px);
+}
+
+.icon {
+  display: none;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 36%;
+  transform: translate(-50%, -50%);
+}
+
+.grid-item:hover .icon {
+  display: block;
+}
+/*Estilos de CARRITO*/
+.detalle-libro {
+  background-color: #151515;
+  width: 25%;
+  height: 400px;
+  color: white;
+  margin: 90px auto 100px auto;
+  padding: 20px;
+  text-align: center;
+  position: relative; /* Agrega posición relativa al contenedor */
+}
+
+.detalle-libro p {
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.detalle-libro a img {
+  width: 20px;
+  margin: 5% auto 5% auto;
+  cursor: pointer;
+}
+
+.btn-pagar {
+  background-color: yellow;
+  color: #000;
+  padding: 20px;
+  width: 50%;
+  margin-top: 50%;
+  border: none;
+  cursor: pointer;
+  font-family: Playfair Display;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.btn-atras {
+  background-color: #999;
+  color: white;
+  padding: 20px;
+  border: none;
+  cursor: pointer;
+  font-family: Playfair Display;
+  font-size: 19px;
+  font-weight: 500;
+ 
+}
+
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  /* Estilos de la barra de navegación para dispositivos móviles */
+  nav {
+    width: 100%; /* Ocupar todo el ancho de la pantalla en dispositivos móviles */
+  }
+
+  nav ul {
+    flex-direction: column; /* Cambiar la dirección de la lista a columna */
+    align-items: center; /* Centrar elementos en dispositivos móviles */
+    padding-top: 0; /* Eliminar el espacio superior */
+  }
+
+  nav a {
+    font-size: 18px; /* Ajustar el tamaño de fuente para dispositivos móviles */
+  }
+
+  /* Ajustar otros estilos para dispositivos móviles según sea necesario */
+
+  /* Estilos para el primer slider en dispositivos móviles */
+  .slider {
+    height: auto; /* Altura automática para adaptarse al contenido */
+  }
+
+  /* Estilos para la sección de presentación en dispositivos móviles */
+  .presentation {
+    max-width: 100%; /* Ancho máximo en dispositivos móviles */
+    margin: 20px; /* Ajustar el margen para dispositivos móviles */
+  }
+
+  /* Ajustar otros estilos para dispositivos móviles según sea necesario */
+
+  /* Estilos para las imágenes en dispositivos móviles */
+  .left,
+  .right {
+    width: 100%; /* Ancho completo en dispositivos móviles */
+    margin: 0; /* Eliminar margen en dispositivos móviles */
+  }
+
+  .right img {
+    margin-left: 0; /* Eliminar el margen izquierdo entre las imágenes */
+    margin-top: 10px; /* Ajustar el espacio entre las imágenes */
+  }
+
+  /* Ajustar otros estilos para dispositivos móviles según sea necesario */
+
+  /* Estilos para el segundo slider en dispositivos móviles */
+  .slider-2-content {
+    text-align: center; /* Centrar el contenido en dispositivos móviles */
+  }
+
+  /* Ajustar otros estilos para dispositivos móviles según sea necesario */
+
+  /* Estilos para el pie de página en dispositivos móviles */
+  footer {
+    padding: 10px; /* Ajustar el relleno para dispositivos móviles */
+  }
+
+  /* Ajustar otros estilos para dispositivos móviles según sea necesario */
 }
