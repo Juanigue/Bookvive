@@ -1,75 +1,169 @@
+/* Estilos generales */
 body {
   font-family: "Playfair Display", serif;
-  width: 1920px;
-  height: 1080px;
   margin: 0;
+  background-color: #fff; /* Cambia el color de fondo según tus preferencias */
 }
 
+.container {
+  max-width: 100%;
+}
+
+/* Estilos del encabezado */
 header {
   text-align: center;
+  background-color: #f8f8f8; /* Cambia el color de fondo según tus preferencias */
+  padding: 20px 0;
 }
 
 header img {
   height: 80px;
 }
 
+/* Estilos de la barra de navegación */
 nav {
   background: #151515;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  height: 55.38px;
+  width: 1920px; /* Ocupar todo el ancho de la página */
+  height: 55px;
 }
+
 nav ul {
   list-style: none;
   display: flex;
-  width: 1920px;
   justify-content: space-around;
+  padding-top: 13px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  display: flex;
-  width: 168px;
-  height: 55px;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
   font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  font-weight: 500;
 }
 
+/* Estilos del primer slider */
 .slider {
-  width: 1919px;
+  width: 100%;
   height: 395px;
+  /* Ajusta el resto de estilos según tus preferencias */
 }
 
+/* Estilos de la sección de presentación */
 .presentation {
   max-width: 800px;
-  margin: 0 auto;
+  padding: 2%;
+  margin: 20px auto;
   text-align: justify;
 }
-
-.presentation blockquote {
-  font-style: italic;
-}
-.container {
+/* Estilos del contenedor de imagen */
+.image-container {
+  width: 576px;
+  height: 813px;
+  margin-top: 20px; /* Ajusta el margen según tus preferencias */
+  margin-left: auto; /* Centra horizontalmente en el lado izquierdo */
+  margin-right: auto; /* Centra horizontalmente en el lado derecho */
+  position: relative; /* Establece una posición relativa para que podamos posicionar el texto de manera absoluta */
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  
+  align-items: left;
+}
+
+/* Estilos del texto superpuesto */
+.overlay-text {
+  position: absolute; /* Establece una posición absoluta con respecto al contenedor */
+  text-align: left;
+  color: #151515;
+  padding: 10px;
+  font-size: 64px;
+  font-weight: 400;
+  padding-bottom: 50%;
+  padding-left: 72px;
+}
+
+.container-img {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente las imágenes */
+  align-items: center; /* Centra verticalmente las imágenes */
+  margin-bottom: 10%;
 }
 
 .left {
-    width: 576px;
-    height: 813px;
-    margin-top: 166px;
-    margin-left: 36px;
-    margin-right: 72px;
+  display: flex;
+  width: 576px;
+  height: 813px;
 }
 
 .right {
-    width: 479px;
-    height: 371px;
+  display: flex;
+  flex-direction: column; /* Coloca las imágenes una encima de la otra */
+}
+
+.right img {
+  margin-left: 72px;
+  padding: 5%;
+}
+
+/* Estilos del segundo slider */
+.slider-2 {
+  width: 100%;
+  position: relative;
+}
+
+.slider-2-content {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+}
+
+.slider-2-content p {
+  color: #151515;
+  text-align: right;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+}
+
+.slider-2-content button {
+  display: flex;
+  border: none;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  background-color: #151515;
+  color: #fff;
+  margin-top: 7%;
+  margin-left: 60%;
+  padding-left: 6%;
+  width: 200px;
+  height: 50px;
+  font-family: Playfair Display;
+  font-size: 20px;
+  font-weight: 400;
+
+}
+
+/* Estilos del pie de página */
+footer {
+  background-color: #151515;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2% 10% 2%;
+}
+
+footer p {
+  margin: 5px 0;
+  padding: 5%;
+}
+
+.contacto{
+  font-size: larger;
 }
