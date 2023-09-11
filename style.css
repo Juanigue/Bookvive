@@ -119,7 +119,7 @@ nav a {
   padding: 5%;
 }
 
-/* Estilos del segundo slider */
+/* Estilos del SEGUNDO SLIDER */
 .slider-2 {
   position: relative;
 }
@@ -155,7 +155,7 @@ nav a {
 .slider-2-content button:hover {
   background-color: #005156;
 }
-/* Estilos del pie de página */
+/* Estilos del FOOTER */
 footer {
   background-color: #151515;
   color: white;
@@ -178,6 +178,7 @@ footer a {
 .contacto {
   font-size: larger;
 }
+
 /* Estilos de página PRODUCTOS */
 
 .header-2 {
@@ -196,17 +197,42 @@ footer a {
 .right-2 {
   margin-right: 5%;
 }
-/* Estilos de la cuadrícula */
+
+/* Estilos de la grid */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* 6 columnas de tamaño igual (1fr) */
   grid-template-rows: repeat(3, 1fr); /* 3 filas de tamaño igual (1fr) */
-  gap: 10px; /* Espacio entre los elementos */
-  margin: 5% 10% 5% 10%;
-  justify-content: center; /* Centra horizontalmente la cuadrícula */
+  gap: 5px; /* Espacio entre los elementos */
+  margin: 5% 10% 0% 10%;
+  justify-content: center; /* Centra horizontalmente la grid */
 }
 .grid-item {
   position: relative;
+}
+
+/* Estilos de la paginación */
+.pagination {
+  text-align: center;
+}
+
+.pagination button {
+  background-color: #151515;
+  color: white;
+  border: none;
+  margin: 0px 5px 20px 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pagination button:hover {
+  background-color: #555555;
+}
+
+.pagination button.current-page {
+  background-color: #007980;
+  color: white; 
 }
 
 .background {
