@@ -1,32 +1,20 @@
-var itemsPerPage = 12; // Número de elementos por página
+var itemsPerPage = 3; // Número de elementos por página
 var currentPage = 1; // Página actual
-var gridItems = document.querySelectorAll('.grid-item'); // Todos los elementos de la cuadrícula
+var items = document.querySelectorAll('.item'); // Todos los elementos de productos
 
 function showPage(page) {
-  for (var i = 0; i < gridItems.length; i++) {
+  for (var i = 0; i < items.length; i++) {
     if (i < page * itemsPerPage && i >= (page - 1) * itemsPerPage) {
-      gridItems[i].style.display = 'block';
+      items[i].style.display = 'block';
     } else {
-      gridItems[i].style.display = 'none';
+      items[i].style.display = 'none';
     }
   }
 }
-// ...
 
 function addPaginationButtons() {
-  var paginationContainer = document.getElementById('pagination');
-  var numberOfPages = Math.ceil(gridItems.length / itemsPerPage);
-
-  var prevBtn = document.createElement('button');
-  prevBtn.innerHTML = 'Anterior';
-  prevBtn.onclick = function() {
-    if (currentPage > 1) {
-      currentPage--;
-      showPage(currentPage);
-      updatePaginationButtons();
-    }
-  };
-  paginationContainer.appendChild(prevBtn);
+  var paginationContainer = document.querySelector('.pagination');
+  var numberOfPages = Math.ceil(items.length / itemsPerPage);
 
   for (var i = 1; i <= numberOfPages; i++) {
     var btn = document.createElement('button');
@@ -38,17 +26,6 @@ function addPaginationButtons() {
     };
     paginationContainer.appendChild(btn);
   }
-
-  var nextBtn = document.createElement('button');
-  nextBtn.innerHTML = 'Siguiente';
-  nextBtn.onclick = function() {
-    if (currentPage < numberOfPages) {
-      currentPage++;
-      showPage(currentPage);
-      updatePaginationButtons();
-    }
-  };
-  paginationContainer.appendChild(nextBtn);
 
   // Función para actualizar los estilos de los botones de paginación
   function updatePaginationButtons() {
@@ -66,8 +43,7 @@ function addPaginationButtons() {
   updatePaginationButtons();
 }
 
-// ...
-
-
+// Mostrar la primera página al cargar la página
 showPage(currentPage);
+// Agregar botones de paginación
 addPaginationButtons();
