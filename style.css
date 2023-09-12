@@ -3,6 +3,12 @@ body {
   background-color: #fff;
   margin: 0;
 }
+.body-login {
+  background: url(fondo-login.jpg) lightgray;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .container {
   max-width: 1920px;
@@ -39,25 +45,33 @@ nav {
 }
 
 nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  padding: 13px 0;
+  display: flex; /*Contenedor flexible para que tenga efecto el justify-content*/
+  justify-content: space-evenly; /*Los pone en el centro y deja un espacio entre ellos*/
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #151515;
 }
 
-nav a {
+nav ul li a {
+  display: block;
   color: white;
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
-  font-size: 20px;
-  font-weight: 500;
-}
-nav a:hover {
-  color: #00c0ca;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 500;
 }
 
+nav ul li a:hover {
+  background-color: #005156;
+}
+
+.cerrar-sesion{
+  background-color: rgb(122, 29, 29);
+}
+.cerrar-sesion:hover{
+  background-color: rgb(255, 0, 0);
+}
 /* Estilos del primer slider */
 .slider {
   width: 100%;
@@ -160,26 +174,7 @@ nav a:hover {
 .slider-2-content button:hover {
   background-color: #005156;
 }
-/* Estilos del FOOTER */
-footer {
-  background-color: #151515;
-  color: white;
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  position: sticky;
-  padding: 5px 10px 5px 10px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
 
-footer p {
-  padding: 5px 10px 5px 10px;
-}
-footer a {
-  padding: 5px 10px 5px 10px;
-}
 .contacto {
   font-size: larger;
 }
@@ -270,29 +265,12 @@ footer a {
   line-height: normal;
   padding-top: 52px;
 }
-.recuadro-form button {
-  display: flex;
-  width: 200px;
-  height: 50px;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  align-items: center;
-  font-family: Playfair Display;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 100;
-  line-height: normal;
-  margin-top: 20px;
-  margin-left: 145px;
-}
+
 input {
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 400px;
-  height: 70px;
+  width: 350px;
+  height: 50px;
   margin-top: 45px;
 }
 
@@ -301,247 +279,47 @@ input::placeholder {
   padding: 5%;
   color: #5c5c5c;
   font-family: Playfair Display;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+.button-submit{
+  background-color: #151515;
+  color: white;
+  max-width: 35%;
+  border: none;
+  cursor: pointer;
+  font-family: Playfair Display;
+  font-size: 19px;
+  font-weight: 500;
+}
+.button-submit:hover{
+  background-color: #005156;
 }
 .span-1 {
   margin-top: 5%;
   font-size: larger;
   font-weight: 500;
 }
-/* Media query para dispositivos móviles */
-@media (max-width: 768px) {
-  /* Estilos de la barra de navegación para dispositivos móviles */
-  nav {
-    width: 100%; /* Ocupar todo el ancho de la pantalla en dispositivos móviles */
-  }
 
-  nav ul {
-    flex-direction: column; /* Cambiar la dirección de la lista a columna */
-    align-items: center; /* Centrar elementos en dispositivos móviles */
-    padding-top: 0; /* Eliminar el espacio superior */
-  }
-
-  nav a {
-    font-size: 18px; /* Ajustar el tamaño de fuente para dispositivos móviles */
-  }
-
-  /* Ajustar otros estilos para dispositivos móviles según sea necesario */
-
-  /* Estilos para el primer slider en dispositivos móviles */
-  .slider {
-    height: auto; /* Altura automática para adaptarse al contenido */
-  }
-
-  /* Estilos para la sección de presentación en dispositivos móviles */
-  .presentation {
-    max-width: 100%; /* Ancho máximo en dispositivos móviles */
-    margin: 20px; /* Ajustar el margen para dispositivos móviles */
-  }
-
-  /* Ajustar otros estilos para dispositivos móviles según sea necesario */
-
-  /* Estilos para las imágenes en dispositivos móviles */
-  .left,
-  .right {
-    width: 100%; /* Ancho completo en dispositivos móviles */
-    margin: 0; /* Eliminar margen en dispositivos móviles */
-  }
-
-  .right img {
-    margin-left: 0; /* Eliminar el margen izquierdo entre las imágenes */
-    margin-top: 10px; /* Ajustar el espacio entre las imágenes */
-  }
-
-  /* Ajustar otros estilos para dispositivos móviles según sea necesario */
-
-  /* Estilos para el segundo slider en dispositivos móviles */
-  .slider-2-content {
-    text-align: center; /* Centrar el contenido en dispositivos móviles */
-  }
-
-  /* Ajustar otros estilos para dispositivos móviles según sea necesario */
-
-  /* Estilos para el pie de página en dispositivos móviles */
-  footer {
-    padding: 10px; /* Ajustar el relleno para dispositivos móviles */
-  }
-
-  /* Ajustar otros estilos para dispositivos móviles según sea necesario */
-}
-
-.icon-cart {
-  width: 40px;
-  height: 40px;
-  stroke: #000;
-}
-
-.icon-cart:hover {
-  cursor: pointer;
-}
-
-img {
-  max-width: 100%;
-}
-
-.container-icon {
-  position: relative;
-}
-
-.count-products {
-  position: absolute;
-  top: 55%;
-  right: 0;
-
-  background-color: #000;
-  color: #fff;
-  width: 25px;
-  height: 25px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-}
-
-#contador-productos {
-  font-size: 12px;
-}
-
-.container-cart-products {
-  position: absolute;
-  top: 50px;
-  right: 0;
-
-  background-color: #fff;
-  width: 400px;
-  z-index: 1;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-}
-
-.cart-product {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 30px;
-
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.info-cart-product {
-  display: flex;
-  justify-content: space-between;
-  flex: 0.8;
-}
-
-.titulo-producto-carrito {
-  font-size: 20px;
-}
-
-.precio-producto-carrito {
-  font-weight: 700;
-  font-size: 20px;
-  margin-left: 10px;
-}
-
-.cantidad-producto-carrito {
-  font-weight: 400;
-  font-size: 20px;
-}
-
-.icon-close {
-  width: 25px;
-  height: 25px;
-}
-
-.icon-close:hover {
-  stroke: red;
-  cursor: pointer;
-}
-
-.cart-total {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-  gap: 20px;
-}
-
-.cart-total h3 {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.total-pagar {
-  font-size: 20px;
-  font-weight: 900;
-}
-
-.hidden-cart {
-  display: none;
-}
-
-/* Main */
-.container-items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.item {
-  border-radius: 10px;
-}
-
-.item:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.item img {
+/* Estilos del FOOTER */
+footer {
+  background-color: #151515;
+  color: white;
   width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-  transition: all 0.5s;
-}
-
-.item figure {
-  overflow: hidden;
-}
-
-.item:hover img {
-  transform: scale(1.2);
-}
-
-.info-product {
-  padding: 15px 30px;
-  line-height: 2;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: sticky;
+  padding: 5px 10px 5px 10px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.price {
-  font-size: 18px;
-  font-weight: 900;
+footer p {
+  padding: 5px 10px 5px 10px;
 }
-
-.info-product button {
-  border: none;
-  background: none;
-  background-color: #000;
-  color: #fff;
-  padding: 15px 10px;
-  cursor: pointer;
-}
-
-.cart-empty {
-  padding: 20px;
-  text-align: center;
-}
-
-.hidden {
-  display: none;
+footer a {
+  padding: 5px 10px 5px 10px;
 }
