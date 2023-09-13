@@ -65,6 +65,12 @@ nav ul li a {
 nav ul li a:hover {
   background-color: #005156;
 }
+.cerrar-sesion{
+  background-color: rgb(122, 29, 29);
+}
+.cerrar-sesion:hover{
+  background-color: rgb(255, 0, 0);
+}
 .header-2 {
   display: flex;
   align-items: center;

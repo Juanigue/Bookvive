@@ -20,6 +20,14 @@
           <li><a href="index.php">Inicio</a></li>
           <li><a href="productos.php">Productos</a></li>
           <li><a href="login.php">Cuenta</a></li>
+          <?php
+          if (isset($_SESSION['usuario'])) {
+            // Si el usuario ha iniciado sesión, aparece la opcion de cerrar sesion
+            echo '<li><a href="logout.php" class="cerrar-sesion">Cerrar Sesion</a></li>';
+          } else {
+            //No muestra nada porque no esta iniciada la sesion
+          }
+          ?>
         </ul>
       </nav>
       <div class="header-2">
@@ -60,7 +68,7 @@
             <div class="cart-total hidden">
               <h3>Total:</h3>
               <span class="total-pagar">$200</span>
-              <a href="payment.html"><button class="btn-pagar">Ir a pagar</button></a>
+              <a href="payment.php"><button class="btn-pagar">Ir a pagar</button></a>
             </div>
             <p class="cart-empty">El carrito esta vacio</p>
           </div>

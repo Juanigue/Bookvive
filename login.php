@@ -29,7 +29,14 @@
           }
           ?>
         </li>
-        <li><a href="productos.php">Productos</a></li>
+        <?php
+          if (isset($_SESSION['usuario'])) {
+            // Si el usuario ha iniciado sesión, aparece la opcion de cerrar sesion
+            echo '<li><a href="productos.php">Productos</a></li>';
+          } else {
+            echo '<li><a href="productos.html">Productos</a></li>';
+          }
+          ?>
         <li><a href="login.php">Cuenta</a></li>
         <?php
           if (isset($_SESSION['usuario'])) {
