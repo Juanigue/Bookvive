@@ -52,7 +52,7 @@ if (isset($_SESSION['usuario'])) {
       </ul>
     </nav>
     <div class="slider">
-      <img src="slider.png" alt="Imagen del slider" />
+      <img src="slider.png" alt="Imagen del slider" width="100%"/>
     </div>
     <div class="presentation">
       <p>
