@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookvive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="aviso.css" />
+  </head>
+  <body class="body-aviso">
+    <div class="container">
+      <header>
+        <img src="Logo.png" alt="Logo de Bookvive" />
+      </header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="login.php">Cuenta</a></li>
+        </ul>
+      </nav>
+      <div class="container-aviso">
+        <p>Debes iniciar sesion para ver nuestros productos</p>
+        <button id="iniciarSesion">Iniciar Sesion</button>
+        <button id="volver">Volver</button>
+        
+      </div>
+    <!-- Cierre div CONTAINER PRINCIPAL-->
+    <footer class="footer-aviso">
+      <div>
+        <img src="LogoBlanco.png" alt="Bookvive Logo" height="80px" />
+      </div>
+      <div>
+        <p class="contacto">Contactanos</p>
+        <a href="https://www.instagram.com/">@Bookvive</a>
+        <p>booksrevives@gmail.com</p>
+        <p>+54 9 2616275466</p>
+      </div>
+    </footer>
+    <script>
+        // Obtén una referencia a los botones por su identificador
+        const botonIniciarSesion = document.getElementById("iniciarSesion");
+        const botonVolver = document.getElementById("volver");
+
+        // Agrega un evento de clic al botón de Iniciar Sesión
+        botonIniciarSesion.addEventListener("click", function() {
+          // Redirige a la página de inicio de sesión
+          window.location.href = "login.php"; // Cambia esto por la URL de la página de inicio de sesión
+        });
+
+        // Agrega un evento de clic al botón de Volver
+        botonVolver.addEventListener("click", function() {
+          // Redirige a la página de destino cuando se hace clic en Volver
+          window.location.href = "index.html"; // Cambia esto por la URL de la página de destino
+        });
+
+    </script>
+  </body>
+</html>

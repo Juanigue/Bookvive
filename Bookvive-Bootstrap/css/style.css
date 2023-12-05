@@ -1,0 +1,19 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+}
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-nav .nav-link:hover {
+  color: rgb(255, 174, 0);
+}
+@media (max-width: 991px) {
+  .navbar-nav {
+    text-align: center;
+  }
+}
