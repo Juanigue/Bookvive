@@ -1,49 +1,65 @@
-var itemsPerPage = 3; // Número de elementos por página
+var itemsPerPage = 4; // Número de elementos por página
 var currentPage = 1; // Página actual
-var items = document.querySelectorAll('.item'); // Todos los elementos de productos
+var items = document.querySelectorAll(".item"); // Todos los elementos de productos
 
 function showPage(page) {
   for (var i = 0; i < items.length; i++) {
     if (i < page * itemsPerPage && i >= (page - 1) * itemsPerPage) {
-      items[i].style.display = 'block';
+      items[i].style.display = "block";
     } else {
-      items[i].style.display = 'none';
+      items[i].style.display = "none";
     }
   }
 }
 
+function updatePaginationButtons() {
+  var buttons = document.querySelectorAll(".num-pagination .page-item");
+  buttons.forEach(function (button, index) {
+    if (index + 1 === currentPage) {
+      button.classList.add("current-page", "active"); // Agrega 'active' para cambiar el color a azul
+    } else {
+      button.classList.remove("current-page", "active");
+    }
+  });
+}
+
+function handlePageClick(e) {
+  e.preventDefault();
+  var clickedPage = parseInt(e.target.innerText);
+  if (!isNaN(clickedPage)) {
+    currentPage = clickedPage;
+    showPage(currentPage);
+    updatePaginationButtons();
+  }
+}
+
+function addBootstrapPaginationListeners() {
+  var paginationButtons = document.querySelectorAll(
+    ".num-pagination .page-link"
+  );
+  paginationButtons.forEach(function (button) {
+    button.addEventListener("click", handlePageClick);
+  });
+}
+
 function addPaginationButtons() {
-  var paginationContainer = document.querySelector('.pagination');
+  var paginationContainer = document.querySelector(".num-pagination");
   var numberOfPages = Math.ceil(items.length / itemsPerPage);
 
   for (var i = 1; i <= numberOfPages; i++) {
-    var btn = document.createElement('button');
-    btn.innerText = i;
-    btn.onclick = function(e) {
-      currentPage = Number(e.target.innerText);
-      showPage(currentPage);
-      updatePaginationButtons();
-    };
-    paginationContainer.appendChild(btn);
+    var li = document.createElement("li");
+    li.classList.add("page-item");
+    var a = document.createElement("a");
+    a.classList.add("page-link");
+    a.href = "#";
+    a.innerText = i;
+    li.appendChild(a);
+    paginationContainer.appendChild(li);
   }
 
-  // Función para actualizar los estilos de los botones de paginación
-  function updatePaginationButtons() {
-    var buttons = paginationContainer.querySelectorAll('button');
-    buttons.forEach(function(button) {
-      if (Number(button.innerText) === currentPage) {
-        button.classList.add('current-page'); // Agrega la clase de estilo al número de página actual
-      } else {
-        button.classList.remove('current-page'); // Elimina la clase de estilo de otros números de página
-      }
-    });
-  }
-
-  // Inicialmente, establece el estilo para la página actual
   updatePaginationButtons();
+  addBootstrapPaginationListeners();
 }
 
-// Mostrar la primera página al cargar la página
 showPage(currentPage);
-// Agregar botones de paginación
 addPaginationButtons();

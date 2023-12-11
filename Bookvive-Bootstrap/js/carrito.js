@@ -1,132 +1,61 @@
-const btnCart = document.querySelector('.container-cart-icon');
-const containerCartProducts = document.querySelector('.container-cart-products');
+// Cuando el documento esté listo
+$(document).ready(function () {
+  // Encuentra el dropdown del carrito
+  var dropdown = document.querySelector(".dropdown");
+  // Encuentra el botón del carrito
+  var button = document.querySelector(".dropdown-toggle");
 
-btnCart.addEventListener('click', () => {
-	containerCartProducts.classList.toggle('hidden-cart');
-});
+  // Cuando hagas clic en el botón del carrito
+  button.addEventListener("click", function (event) {
+    // Evita que el dropdown se cierre automáticamente
+    event.stopPropagation();
+    // Abre o cierra el dropdown manualmente
+    $(dropdown).toggleClass("show");
+  });
 
-/* ========================= */
-const cartInfo = document.querySelector('.cart-product');
-const rowProduct = document.querySelector('.row-product');
-
-// Lista de todos los contenedores de productos
-const productsList = document.querySelector('.container-items');
-
-// Variable de arreglos de Productos
-let allProducts = [];
-
-const valorTotal = document.querySelector('.total-pagar');
-
-const countProducts = document.querySelector('#contador-productos');
-
-const cartEmpty = document.querySelector('.cart-empty');
-const cartTotal = document.querySelector('.cart-total');
-
-productsList.addEventListener('click', e => {
-	if (e.target.classList.contains('btn-add-cart')) {
-		const product = e.target.parentElement;
-
-		const infoProduct = {
-			quantity: 1,
-			title: product.querySelector('h2').textContent,
-			price: product.querySelector('p').textContent,
-		};
-
-		const exits = allProducts.some(
-			product => product.title === infoProduct.title
-		);
-
-		if (exits) {
-			const products = allProducts.map(product => {
-				if (product.title === infoProduct.title) {
-					product.quantity++;
-					return product;
-				} else {
-					return product;
-				}
-			});
-			allProducts = [...products];
-		} else {
-			allProducts = [...allProducts, infoProduct];
-		}
-
-		showHTML();
-	}
-});
-
-rowProduct.addEventListener('click', e => {
-	if (e.target.classList.contains('icon-close')) {
-		const product = e.target.parentElement;
-		const title = product.querySelector('p').textContent;
-
-		allProducts = allProducts.filter(
-			product => product.title !== title
-		);
-
-		console.log(allProducts);
-
-		showHTML();
-	}
-});
-
-// Funcion para mostrar  HTML
-const showHTML = () => {
-    // Obtener el botón de pago
-    const paymentButton = document.querySelector('.btn-pagar');
-
-    if (!allProducts.length) {
-        cartEmpty.classList.remove('hidden');
-        rowProduct.classList.add('hidden');
-        cartTotal.classList.add('hidden');
-        // Ocultar el botón de pago
-        paymentButton.style.display = 'none';
-    } else {
-        cartEmpty.classList.add('hidden');
-        rowProduct.classList.remove('hidden');
-        cartTotal.classList.remove('hidden');
-        // Mostrar el botón de pago
-        paymentButton.style.display = 'block';
+  // Cuando hagas clic fuera del dropdown
+  window.onclick = function (event) {
+    if (!event.target.matches(".dropdown-toggle")) {
+      // Si el dropdown está abierto
+      if ($(dropdown).hasClass("show")) {
+        // No hagas nada (no cierres el dropdown)
+      } else {
+        // Si el dropdown está cerrado, ciérralo
+        $(dropdown).removeClass("show");
+      }
     }
+  };
+});
+// Primero, seleccionamos todos los botones "Agregar al Carrito"
+let botones = document.querySelectorAll(".btn-dark");
 
-    // Limpiar HTML
-    rowProduct.innerHTML = '';
+// Luego, iteramos sobre cada botón y agregamos un evento de click
+botones.forEach((btn) => {
+  btn.addEventListener("click", function (event) {
+    // Evitamos que el botón haga un refresh de la página
+    event.preventDefault();
 
-    let total = 0;
-    let totalOfProducts = 0;
+    // Obtenemos los detalles del producto
+    let card = this.parentElement;
+    let title = card.querySelector(".card-title").innerText;
+    let price = card.querySelector(".price").innerText;
 
-    allProducts.forEach(product => {
-        const containerProduct = document.createElement('div');
-        containerProduct.classList.add('cart-product');
+    // Creamos un nuevo elemento para el carrito
+    let newProduct = document.createElement("div");
+    newProduct.innerHTML = `
+            <p>${title} - ${price}</p>
+          `;
 
-        containerProduct.innerHTML = `
-            <div class="info-cart-product">
-                <span class="cantidad-producto-carrito">${product.quantity}</span>
-                <p class="titulo-producto-carrito">${product.title}</p>
-                <span class="precio-producto-carrito">${product.price}</span>
-            </div>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="icon-close"
-            >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                />
-            </svg>
-        `;
+    // Agregamos el nuevo producto al carrito
+    let cart = document.querySelector(".row-product");
+    cart.appendChild(newProduct);
 
-        rowProduct.append(containerProduct);
+    // Actualizamos el total
+    let total = document.querySelector(".total-pagar");
+    total.innerText = parseFloat(total.innerText) + parseFloat(price.slice(1));
 
-        total =
-            total + parseInt(product.quantity * product.price.slice(1));
-        totalOfProducts = totalOfProducts + product.quantity;
-    });
-
-    valorTotal.innerText = `$${total}`;
-    countProducts.innerText = totalOfProducts;
-};
+    // Actualizamos el contador de productos
+    let counter = document.querySelector("#contador-productos");
+    counter.innerText = parseInt(counter.innerText) + 1;
+  });
+});

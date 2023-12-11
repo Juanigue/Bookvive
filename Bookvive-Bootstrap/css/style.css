@@ -12,6 +12,21 @@ h2 {
 .navbar-nav .nav-link:hover {
   color: rgb(255, 174, 0);
 }
+.main-content {
+  background-image: url('/img/slider5.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container-cart-products {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.container-cart-products:not(.hidden-cart) {
+  display: block;
+}
+
 @media (max-width: 991px) {
   .navbar-nav {
     text-align: center;
