@@ -47,7 +47,7 @@ const displayCart = () => {
           <span class = "quantity-btn-increase fas fa-plus-square"></span>
         </div>
         <div class = "unit_price ps-2">
-          <span>${product.price * product.quantity}</span>
+          <span>${product.price}</span>
         </div>
         <div class = "delete-product ps-2 fas fa-trash"></div>
       </div>
