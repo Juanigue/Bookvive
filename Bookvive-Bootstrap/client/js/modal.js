@@ -81,6 +81,7 @@ const displayCart = () => {
     modalText.className = "p-1 m-1";
     modalText.innerText = "No hay productos en el carrito";
     modalContainer.append(modalText); //Le introducimos el texto al modal en general
+    document.getElementById("checkout-btn").style.display = "none";
   }
 
   //Footer Modal
@@ -111,7 +112,6 @@ const displayCart = () => {
 
         if (cart.length === 1) {
           // Si hay solo un producto, toma la información del primer elemento en el carrito
-          console.log(cart[0].title, cart[0].quantity, cart[0].price);
           orderData = {
             title: cart[0].title,
             quantity: cart[0].quantity.toString(),
@@ -130,7 +130,7 @@ const displayCart = () => {
               .toString(),
           };
         }
-
+        document.getElementById("checkout-btn").style.display = "none";
         const response = await fetch(
           "http://localhost:3000/create_preference",
           {
@@ -146,10 +146,11 @@ const displayCart = () => {
 
         const preference = await response.json();
         createCheckoutButton(preference.id);
-        document.getElementById("checkout-btn").style.display = "none";
+       
       } catch (error) {
         alert("Error, el carrito está vacío");
       }
+      document.getElementById("checkout-btn").style.display = "none";
     });
 
   const createCheckoutButton = (preferenceId) => {
@@ -173,8 +174,8 @@ cartBtn.addEventListener("click", displayCart);
 const deleteCartProducts = (id) => {
   //detecto el producto que el usuario quiere eliminar a traves del id para saber en que posicion del array esta
   const foundId = cart.findIndex((element) => element.id === id);
-  console.log(foundId);
   cart.splice(foundId, 1);
+  updateCartCounter();
   displayCart();
   displayCartCounter();
 };
