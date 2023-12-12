@@ -1,0 +1,62 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+}
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-nav .nav-link:hover {
+  color: rgb(255, 174, 0);
+}
+.main-content {
+  background-image: url('/client/img/slider5.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#shopContent {
+  display: flex;
+  justify-content: space-around; /* O el estilo de justificación que prefieras */
+  flex-wrap: wrap;
+}
+
+.modal-overlay {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.modal-container{
+  display: none;
+  color: black;
+  background-color: aliceblue;
+  box-shadow: black;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -1%);
+  max-width: 50%;
+  width: 100%;
+  z-index: 0;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.modal-close{
+  float: right;
+  cursor: pointer;
+}
+/*Para centrar los textos cuando esta en vista mobile*/
+@media (max-width: 991px) {
+  .navbar-nav {
+    text-align: center;
+  }
+}
