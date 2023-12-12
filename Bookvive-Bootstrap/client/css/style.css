@@ -34,26 +34,61 @@ h2 {
   bottom: 0;
   z-index: 0;
 }
-.modal-container{
+.modal-container {
   display: none;
-  color: black;
-  background-color: aliceblue;
-  box-shadow: black;
-  padding: 40px;
-  position: absolute;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  padding: 2%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -1%);
-  max-width: 50%;
-  width: 100%;
-  z-index: 0;
-  max-height: 80vh;
-  overflow-y: auto;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  overflow: auto;
+  z-index: 1; /* Asegúrate de que el modal esté por encima de otros elementos */
 }
-.modal-close{
-  float: right;
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   cursor: pointer;
+  font-size: 24px; /* O el tamaño que prefieras */
+  z-index: 10000; /* Asegúrate de que esté por encima del contenido del modal */
 }
+.modal-footer {
+  display: flex;
+  justify-content: center; /* Centra el contenido del footer */
+  align-items: center; /* Centra el contenido verticalmente */
+  padding: 1rem; /* Espaciado interno para el footer */
+}
+.product {
+  display: flex;
+  flex-direction: column; /* Alineación vertical por defecto */
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #ccc; /* Opcional: para separar los productos */
+}
+.modal-body {
+  width: 100%; /* O el ancho máximo que prefieras */
+  max-width: 1200px; /* O el ancho máximo que prefieras */
+  margin: auto; /* Centra el contenido si hay un ancho máximo */
+}
+
+@media (min-width: 768px) { /* Ajusta este valor según el breakpoint que desees */
+  .product {
+    flex-direction: row; /* Alineación horizontal para pantallas más grandes */
+  }
+}
+@media (max-width: 991px) {
+  .modal-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 /*Para centrar los textos cuando esta en vista mobile*/
 @media (max-width: 991px) {
   .navbar-nav {

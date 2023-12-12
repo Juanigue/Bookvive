@@ -36,22 +36,24 @@ const displayCart = () => {
       const modalBody = document.createElement("div");
       modalBody.className = "modal-body";
       modalBody.innerHTML = `
-      <div class = "product">
-      <img class="rounded w-25 p-2" src="${product.img}" >
-        <div class = "product-title ps-2">
+      <div class="product d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <img class="rounded p-2 flex-shrink-0" style="width: 25%;" src="${product.img}" >
+        <div class="product-title ps-2">
           <h4>${product.title}</h4>
         </div>
-        <div class = "quantity ps-2">
-          <span class = "quantity-btn-decrease fas fa-minus-square"></span>
-          <span class = "quantity-input p-2">${product.quantity}</span>
-          <span class = "quantity-btn-increase fas fa-plus-square"></span>
+        <div class="quantity d-flex align-items-center ps-2">
+          <span class="quantity-btn-decrease fas fa-minus-square me-2"></span>
+          <span class="quantity-input p-2">${product.quantity}</span>
+          <span class="quantity-btn-increase fas fa-plus-square ms-2"></span>
         </div>
-        <div class = "unit_price ps-2">
+        <div class="unit_price ps-2">
           <span>${product.price}</span>
         </div>
-        <div class = "delete-product ps-2 fas fa-trash"></div>
+        <div class="delete-product ps-2 fas fa-trash"></div>
       </div>
       `;
+      modalContainer.append(modalBody);
+
       modalContainer.append(modalBody);
       //queryselector para capturar clases de css
       const disminuir = modalBody.querySelector(".quantity-btn-decrease");
@@ -90,10 +92,11 @@ const displayCart = () => {
   const modalFooter = document.createElement("div");
   modalFooter.className = "modal-footer";
   modalFooter.innerHTML = `
-    <div class="total-price">Total: $ ${totalPrice} </div>
-    <button id="checkout-btn">Finalizar Compra</button>
-    <div id="button-checkout"></div>
-    <div id="wallet_container"></div>
+  <div class="total-price p-2 m-2 ">Total: $ ${totalPrice}</div>
+  <button id="checkout-btn" class="btn btn-primary p-2 m-2">Finalizar Compra</button>
+  <div id="wallet_container">
+  </div>
+  
   `;
   modalContainer.append(modalFooter);
 
@@ -104,12 +107,29 @@ const displayCart = () => {
     .getElementById("checkout-btn")
     .addEventListener("click", async () => {
       try {
-        const orderData = {
-          title: document.querySelector(".product-title").innerText,
-          quantity: document.querySelector(".quantity-input").innerText,
-          price: document.querySelector(".unit_price").innerText,
-        };
-        
+        let orderData;
+
+        if (cart.length === 1) {
+          // Si hay solo un producto, toma la información del primer elemento en el carrito
+          console.log(cart[0].title, cart[0].quantity, cart[0].price);
+          orderData = {
+            title: cart[0].title,
+            quantity: cart[0].quantity.toString(),
+            price: cart[0].price,
+          };
+        } else {
+          // Si hay más de un producto, establece el título como "Varios Libros"
+          orderData = {
+            title: "Varios Libros",
+            quantity: 1,
+            price: cart
+              .reduce(
+                (acc, product) => acc + product.price * product.quantity,
+                0
+              )
+              .toString(),
+          };
+        }
 
         const response = await fetch(
           "http://localhost:3000/create_preference",
@@ -121,29 +141,31 @@ const displayCart = () => {
             body: JSON.stringify(orderData),
           }
         );
+
         console.log("Order Data:", orderData);
+
         const preference = await response.json();
         createCheckoutButton(preference.id);
+        document.getElementById("checkout-btn").style.display = "none";
       } catch (error) {
-        alert("Error al crear la preferencia de MercadoPago");
+        alert("Error, el carrito está vacío");
       }
     });
 
-    const createCheckoutButton = (preferenceId) => {
-      const bricksBuilder = mp.bricks();
-    
-      const renderComponent = async () => {
-        if (window.checkoutButton) window.checkoutButton.unmount();
-    
-        await bricksBuilder.create("wallet", "wallet_container", {
-          initialization: {
-            preferenceId: preferenceId,
-          },
-        });
-      };
-      renderComponent();
+  const createCheckoutButton = (preferenceId) => {
+    const bricksBuilder = mp.bricks();
+
+    const renderComponent = async () => {
+      if (window.checkoutButton) window.checkoutButton.unmount();
+
+      await bricksBuilder.create("wallet", "wallet_container", {
+        initialization: {
+          preferenceId: preferenceId,
+        },
+      });
     };
-    
+    renderComponent();
+  };
 };
 
 cartBtn.addEventListener("click", displayCart);
