@@ -1,7 +1,7 @@
 //primero capturo el contenedor que va a tener todos los productos de adentro
 const shopContent = document.getElementById("shopContent"); //va a capturar los elementos que contengan el id shopContent
 const cart = []; //inicializo un array vacio para luego introducirle los productos dentro del carrito
-
+const searchInput = document.getElementById("searchInput"); //capturo el input que va a tener el buscador
 // Número total de productos
 const numProducts = productos.length;
 
