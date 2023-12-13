@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bookvive | Inicio</title>
+    <title>Bookvive | Registrarse</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -67,30 +67,30 @@
     </nav>
     <div class="main-content d-flex justify-content-center align-items-center" style="height: 100vh;">
       <div class="login-form d-flex justify-content-center align-items-center bg-dark" style="height: 80vh; width: 80vh;">
-        <form class="text-white w-100 p-5 m-5">
+        <form class="text-white w-100 m-5">
           <h3>Registrarse</h3>
           
           <div data-mdb-input-init class="form-outline mb-4">
             <label class="form-label" for="form3Example3">Nombre</label>
-            <input type="email" id="form3Example3" placeholder="Escriba aqui..." class="form-control rounded-2 p-2" />
+            <input type="name" id="nombre" placeholder="Nombre..." class="form-control rounded-2 p-2" />
           </div>
           <div data-mdb-input-init class="form-outline mb-4">
             <label class="form-label" for="form3Example3">Apellido</label>
-            <input type="email" id="form3Example3" placeholder="Escriba aqui..." class="form-control rounded-2 p-2" />           
+            <input type="lastname" id="apellido" placeholder="Apellido..." class="form-control rounded-2 p-2" />           
           </div>
           <!-- Email input -->
           <div data-mdb-input-init class="form-outline mb-4">
             <label class="form-label" for="form3Example3">Email</label>
-            <input type="email" id="form3Example3" placeholder="Escriba aqui..." class="form-control rounded-2 p-2" />          
+            <input type="email" id="email" placeholder="Email..." class="form-control rounded-2 p-2" />          
           </div>
           <!-- Password input -->
           <div data-mdb-input-init class="form-outline mb-4">
             <label class="form-label" for="form3Example4">Contraseña</label>
-            <input type="password" id="form3Example4" placeholder="Escriba aqui..." class="form-control rounded-2 p-2" />   
+            <input type="password" id="contrasena" placeholder="Contraseña..." class="form-control rounded-2 p-2" />   
           </div>
           <!-- Submit button -->
-          <button data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4 rounded-2 p-2">Crear Cuenta</button>
-          <a class="ps-4" href="/login.html">Ya tengo cuenta</a>
+          <button data-mdb-ripple-init type="button" class="btn btn-primary btn-crear-cuenta btn-block mb-4 rounded-2 p-2">Crear Cuenta</button>
+          <a class="ps-4" href="/client/html/login.html">Ya tengo cuenta</a>
         </form>
       </div>
     </div>
@@ -132,5 +132,6 @@
         window.location.href = "/index.html"; // Cambia esto por la URL de la página de destino
       });
     </script>
+    <script src="/client/js/users.js"></script>
   </body>
 </html>

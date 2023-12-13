@@ -16,6 +16,7 @@ h2 {
   background-image: url('/client/img/slider5.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 600px;
 }
 
 #shopContent {
