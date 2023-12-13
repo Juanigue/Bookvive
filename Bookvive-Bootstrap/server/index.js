@@ -44,9 +44,6 @@ app.post("/create_preference", async (req, res) => {
     const preference = new Preference(client);
     const result = await preference.create({ body });
     res.json({ id: result.id });
-    console.log("Creacion de ID de compra correcta");
-    console.log(result.id);
-    console.log(req.body.price)
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Error al crear el Producto/Preferencia" });

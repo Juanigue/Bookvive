@@ -12,8 +12,7 @@ const displayCart = () => {
   const modalHeader = document.createElement("div");
 
   const modalClose = document.createElement("div");
-  modalClose.innerText = "❌";
-  modalClose.className = "modal-close";
+  modalClose.className = "modal-close fas fa-window-close";
   modalHeader.append(modalClose); //Le introducimos el boton de cerrar el modal al header
 
   //Para cerrar el carrito
@@ -93,10 +92,12 @@ const displayCart = () => {
   const modalFooter = document.createElement("div");
   modalFooter.className = "modal-footer";
   modalFooter.innerHTML = `
-  <div class="total-price p-2 m-2 ">Total: $ ${totalPrice}</div>
+  <div class="total-price p-3 m-3">Total: $ ${totalPrice}</div>
   <button id="checkout-btn" class="btn btn-primary p-2 m-2">Finalizar Compra</button>
-  <div id="wallet_container">
+  <div class="p-2 m-3">
+    <div id="wallet_container"></div>
   </div>
+
   
   `;
   modalContainer.append(modalFooter);
@@ -141,8 +142,6 @@ const displayCart = () => {
             body: JSON.stringify(orderData),
           }
         );
-
-        console.log("Order Data:", orderData);
 
         const preference = await response.json();
         createCheckoutButton(preference.id);

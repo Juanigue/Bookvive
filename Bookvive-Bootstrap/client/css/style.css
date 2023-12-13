@@ -38,48 +38,49 @@ h2 {
   display: none;
   background-color: white;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
   position: fixed;
   padding: 2%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
-  height: 50%;
+  height: 90%;
   overflow: auto;
-  z-index: 1; /* Asegúrate de que el modal esté por encima de otros elementos */
+  z-index: 1;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 .modal-close {
   position: absolute;
   top: 10px;
   right: 10px;
   cursor: pointer;
-  font-size: 24px; /* O el tamaño que prefieras */
-  z-index: 10000; /* Asegúrate de que esté por encima del contenido del modal */
-}
-.modal-footer {
-  display: flex;
-  justify-content: center; /* Centra el contenido del footer */
-  align-items: center; /* Centra el contenido verticalmente */
-  padding: 1rem; /* Espaciado interno para el footer */
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 10000; 
 }
 .product {
   display: flex;
-  flex-direction: column; /* Alineación vertical por defecto */
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  border-bottom: 1px solid #ccc; /* Opcional: para separar los productos */
+  border-bottom: 1px solid #ccc;
 }
 .modal-body {
-  width: 100%; /* O el ancho máximo que prefieras */
-  max-width: 1200px; /* O el ancho máximo que prefieras */
-  margin: auto; /* Centra el contenido si hay un ancho máximo */
+  width: 100%; 
+  max-width: 1200px;
+  margin: auto;
 }
 
-@media (min-width: 768px) { /* Ajusta este valor según el breakpoint que desees */
+@media (min-width: 768px) {
   .product {
-    flex-direction: row; /* Alineación horizontal para pantallas más grandes */
+    flex-direction: row; 
   }
 }
 @media (max-width: 991px) {
@@ -88,7 +89,16 @@ h2 {
     height: 100%;
   }
 }
-
+@media (max-width: 991px) {
+  .modal-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 3%;
+    font-weight: bold;
+  }
+}
 /*Para centrar los textos cuando esta en vista mobile*/
 @media (max-width: 991px) {
   .navbar-nav {
