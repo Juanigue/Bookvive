@@ -5,7 +5,7 @@ const searchInput = document.getElementById("searchInput"); //capturo el input q
 // Número total de productos
 const numProducts = productos.length;
 // Número de productos por página
-const perPage = 5;
+const perPage = 3;
 // Número total de páginas
 const numPages = Math.ceil(numProducts / perPage);
 // Crear la paginación
@@ -23,7 +23,6 @@ for (let i = 1; i <= numPages; i++) {
   pageItem.append(pageLink);
   pagination.append(pageItem);
 
-  // Evento al hacer click en un botón de paginación
   pageLink.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -43,7 +42,7 @@ for (let i = 1; i <= numPages; i++) {
       const card = document.createElement("div");
       card.className = "card m-2";
       card.style.width = "18rem";
-      card.style.position = "relative"; // Añade posición relativa al contenedor de la card
+      card.style.position = "relative"; 
 
       // Crear el contenido de la card
       const content = document.createElement("div");
@@ -100,14 +99,14 @@ for (let i = 1; i <= numPages; i++) {
     pageItem.classList.add("active");
   });
 
-  // Invocar el evento de clic en el primer botón de paginación
+  // Invoca el evento de clic en el primer botón de paginación
   if (i === 1) {
     pageLink.click();
   }
 }
 // Función para filtrar y mostrar productos
 function filterProducts() {
-  // Obtener el valor del input de búsqueda
+  // Captura el valor del input de búsqueda y usa toLowercase() para que traduzca todo a minusculas
   const searchTerm = searchInput.value.toLowerCase();
 
   // Filtrar los productos que coincidan con el término de búsqueda
@@ -115,16 +114,16 @@ function filterProducts() {
     product.title.toLowerCase().includes(searchTerm)
   );
 
-  // Actualizar el número total de productos filtrados
+  // Actualiza el número total de productos filtrados
   const numFilteredProducts = filteredProducts.length;
 
-  // Calcular el número total de páginas para los productos filtrados
+  // Calcula el número total de páginas para los productos filtrados
   const numFilteredPages = Math.ceil(numFilteredProducts / perPage);
 
-  // Limpiar la paginación anterior
+  // Limpia la paginación anterior
   pagination.innerHTML = "";
 
-  // Crear los botones de paginación para los productos filtrados
+  // Crea los botones de paginación para los productos filtrados
   for (let i = 1; i <= numPages; i++) {
     const pageItem = document.createElement("li");
     pageItem.className = "page-item";
@@ -137,14 +136,11 @@ function filterProducts() {
     pageItem.append(pageLink);
     pagination.append(pageItem);
   
-    // Evento al hacer click en un botón de paginación
     pageLink.addEventListener("click", (e) => {
       e.preventDefault();
   
-      // Desplazar la ventana al inicio de la página
       window.scrollTo(0, 0);
   
-      // Limpiar el contenedor
       shopContent.innerHTML = "";
   
       // Obtener los productos de la página actual
@@ -157,8 +153,7 @@ function filterProducts() {
         const card = document.createElement("div");
         card.className = "card m-2";
         card.style.width = "18rem";
-        card.style.position = "relative"; // Añade posición relativa al contenedor de la card
-  
+        card.style.position = "relative";
         // Crear el contenido de la card
         const content = document.createElement("div");
         content.className = "card-body";
@@ -203,18 +198,16 @@ function filterProducts() {
           }
         });
   
-        // Agregar la tarjeta al contenedor principal
+        // Agrega la card al contenedor principal
         shopContent.append(card);
       });
   
-      // Resaltar el botón de la página actual
       document.querySelectorAll(".page-item").forEach((item) => {
         item.classList.remove("active");
       });
       pageItem.classList.add("active");
     });
-  
-    // Invocar el evento de clic en el primer botón de paginación
+
     if (i === 1) {
       pageLink.click();
     }
@@ -226,7 +219,7 @@ function filterProducts() {
 
 // Función para mostrar los productos en el contenedor
 function displayProducts(productsToShow) {
-  // Limpiar el contenedor
+  // Limpia el contenedor
   shopContent.innerHTML = "";
 
   // Generar las card de los productos

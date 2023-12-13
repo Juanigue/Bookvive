@@ -21,7 +21,7 @@ h2 {
 
 #shopContent {
   display: flex;
-  justify-content: space-around; /* O el estilo de justificación que prefieras */
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
@@ -100,7 +100,6 @@ h2 {
     font-weight: bold;
   }
 }
-/*Para centrar los textos cuando esta en vista mobile*/
 @media (max-width: 991px) {
   .navbar-nav {
     text-align: center;

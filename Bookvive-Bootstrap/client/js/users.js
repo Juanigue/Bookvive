@@ -1,15 +1,14 @@
 
 function registrarUsuario() {
 
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
+
     const email = document.getElementById('email').value;
     const contrasena = document.getElementById('contrasena').value;
   
     // Validar que los campos no estén vacíos
-    if (nombre && apellido && email && contrasena) {
+    if (email && contrasena) {
       // Guardar los datos del usuario en localStorage
-      localStorage.setItem('usuario', JSON.stringify({ nombre, apellido, email, contrasena }));
+      localStorage.setItem('usuario', JSON.stringify({email, contrasena }));
       alert('Usuario registrado con éxito');
       window.location.href = '/client/html/index.html';
     } else {
@@ -48,13 +47,12 @@ function iniciarSesion() {
   
 
 function handleRegistro() {
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
+
     const email = document.getElementById('email').value;
     const contrasena = document.getElementById('contrasena').value;
   
     // Llamar a la función de registro
-    registrarUsuario(nombre, apellido, email, contrasena);
+    registrarUsuario(email, contrasena);
   }
   
   // Función para manejar el evento de inicio de sesión

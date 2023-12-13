@@ -45,8 +45,8 @@ const displayCart = () => {
           <span class="quantity-input p-2">${product.quantity}</span>
           <span class="quantity-btn-increase fas fa-plus-square ms-2"></span>
         </div>
-        <div class="unit_price ps-2">
-          <span>${product.price}</span>
+        <div class="unit_price p-3">
+          <span>${product.price}</span><span>$</span>
         </div>
         <div class="delete-product ps-2 fas fa-trash"></div>
       </div>
@@ -121,7 +121,7 @@ const displayCart = () => {
         } else {
           // Si hay más de un producto, establece el título como "Varios Libros"
           orderData = {
-            title: "Varios Libros",
+            title: "Productos",
             quantity: 1,
             price: cart
               .reduce(
